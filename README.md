@@ -20,3 +20,5 @@ This script (`deploy.sh`) will build, automatically tag/version, and upload your
 The version is automatically determined by the number of commits to the tool repo. If you are on a branch
 other than master, the branch name will automatically be prepended to the version number. This is to distinguish
 alternate tool versions or configurations that are not intended to supersede existing versions of the tool.
+
+aaaaaaaaa
