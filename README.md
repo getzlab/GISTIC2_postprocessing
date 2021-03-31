@@ -1,9 +1,29 @@
-p-value combination for PCAWG drivers
+GISTIC2 postprocessing: To force-call CNV drivers for each tumor sample.
 
-Note: we are using parts of the original code for the Empirical Brown's method (Poole et al. Bioinformatics, 2016). For details, check the following github repo: https://github.com/IlyaLab/CombiningDependentPvaluesUsingEBM
 
-Requirements: R-3.4, uses package reshape.
+Requirements: Matlab
 
-The inputs to the R script are: tissue, target, dir, sif_filepath. The outputs contain a a diagnostic QQ plot of observed vs. expected p-values for all input p-value sets, a table with combined p-values, a report that indicates which p-value sets were included and a table of combined p-values after removing some outlier methods (.combined_p_values.automatic_method_removal.txt). For details please see Rheinbay, Nielsen, Abascal, Wala, Shapira et al.
+The inputs to the Matlab script are: segmentation_file, amp_focal_file (GISTIC2 output), del_focal_file (GISTIC2 output), cnv_blacklist_file (GISTIC2 input), arm_coordinates_file. 
 
-aaaaaaaaa
+The outputs contain 6 files:
+1. presence/absence of amplification/deletion per chromosome arm per sample;
+2. median intensity per chromosome arm per sample;
+3. presence/absence of each focal amplification driver per sample; 
+4. corrected intensity of each focal amplification driver per sample;
+5. presence/absence of each focal deletion driver per sample;
+6. corrected intensity of each focal deletion driver per sample;
+
+Steps:
+
+1. Open Matlab
+2. Run the following commands to assign the filepaths to the required inputs:
+
+clear
+segfile = 'example_data/concat_seg.aggregated.exclude.nan.tsv';
+amp_focal_file = 'example_data/amp_focal_file.txt';
+del_focal_file = 'example_data/del_focal_file.txt';
+cnv_blacklist_file = 'example_data/WES_pairs_rerun_final_20200703_update_blacklist.txt';
+arm_coordinates_file = 'example_data/hg19.GISTIC.arms.tsv';
+
+3. Then execute the function GISTIC2_force_calling:
+GISTIC2_force_calling(segfile,amp_focal_file,del_focal_file,cnv_blacklist_file, arm_coordinates_file)
