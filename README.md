@@ -1,4 +1,6 @@
-GISTIC2 postprocessing: To force-call CNV drivers for each tumor sample.
+# GISTIC2 postprocessing
+
+To force-call CNV drivers for each tumor sample.
 
 
 Requirements: Matlab
@@ -16,14 +18,21 @@ The outputs contain 6 files:
 Steps:
 
 1. Open Matlab
+
 2. Run the following commands to assign the filepaths to the required inputs:
 
 clear
+
 segfile = 'example_data/concat_seg.aggregated.exclude.nan.tsv';
+
 amp_focal_file = 'example_data/amp_focal_file.txt';
+
 del_focal_file = 'example_data/del_focal_file.txt';
+
 cnv_blacklist_file = 'example_data/WES_pairs_rerun_final_20200703_update_blacklist.txt';
+
 arm_coordinates_file = 'example_data/hg19.GISTIC.arms.tsv';
 
 3. Then execute the function GISTIC2_force_calling:
+
 GISTIC2_force_calling(segfile,amp_focal_file,del_focal_file,cnv_blacklist_file, arm_coordinates_file)
