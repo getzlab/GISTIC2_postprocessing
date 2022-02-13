@@ -19,19 +19,19 @@ Steps:
 
 1. Open Matlab
 
-2. Run the following commands to assign the filepaths to the required inputs:
+2. Run the following commands to assign the filepath to the required inputs:
 
 clear
 
-segfile = 'example_data/concat_seg.aggregated.exclude.nan.tsv';
+segfile = 'segmentation_file';
 
-amp_focal_file = 'example_data/amp_focal_file.txt';
+amp_focal_file = 'amp_focal_file';
 
-del_focal_file = 'example_data/del_focal_file.txt';
+del_focal_file = 'del_focal_file';
 
-cnv_blacklist_file = 'example_data/WES_pairs_rerun_final_20200703_update_blacklist.txt';
+cnv_blacklist_file = 'cnv_blacklist_file';
 
-arm_coordinates_file = 'example_data/hg19.GISTIC.arms.tsv';
+arm_coordinates_file = 'arm_coordinates_file';
 
 3. Then execute the function GISTIC2_force_calling:
 
